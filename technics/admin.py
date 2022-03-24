@@ -1,14 +1,13 @@
 from django.contrib import admin
 
-from .models import OfficeEquipment, Owner
+from .models import OfficeEquipment
+from users.models import Owner
 
 
 class OfficeEquipmentAdmin(admin.ModelAdmin):
     fields = (
         'equipe_type',
         'model',
-        'owner',
-        'cabinet',
         'sticker',
         'status',
         'item_number',
@@ -16,4 +15,4 @@ class OfficeEquipmentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(OfficeEquipment, OfficeEquipmentAdmin)
-admin.site.register(Owner)
+
