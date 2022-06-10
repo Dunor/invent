@@ -1,20 +1,11 @@
 from django.contrib import admin
 
-from .models import OfficeEquipment, TypeOfficeEquipment
-from users.models import Owner
+from .models import TypeOfficeEquipment
 
 
-class OfficeEquipmentAdmin(admin.ModelAdmin):
-    # fields = (
-    #     'equipe_type',
-    #     'model',
-    #     'sticker',
-    #     'status',
-    #     'item_number',
-    # )
-    pass
+class TypeOfficeEquipmentAdmin(admin.ModelAdmin):
+    radio_fields = {"interfaces": admin.HORIZONTAL}
 
 
-admin.site.register(OfficeEquipment, OfficeEquipmentAdmin)
-admin.site.register(TypeOfficeEquipment)
+admin.site.register(TypeOfficeEquipment, TypeOfficeEquipmentAdmin)
 
