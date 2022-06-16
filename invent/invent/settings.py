@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'technics',
     'users',
     'cards',
+    'extras',
 ]
 
 MIDDLEWARE = [

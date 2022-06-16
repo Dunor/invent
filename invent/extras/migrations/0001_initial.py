@@ -12,12 +12,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Owner',
+            name='Cartrige',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('fname', models.CharField(max_length=50, verbose_name='имя')),
-                ('lname', models.CharField(max_length=50, verbose_name='фамилия')),
-                ('mname', models.CharField(max_length=50, verbose_name='отчество')),
+                ('name', models.CharField(max_length=150, unique=True)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Interface',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('name', models.CharField(max_length=50, unique=True)),
             ],
         ),
     ]

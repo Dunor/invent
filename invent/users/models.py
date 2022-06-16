@@ -7,4 +7,4 @@ class Owner(models.Model):
     mname = models.CharField(max_length=50, verbose_name='отчество')
 
     def __str__(self):
-        return f'{self.lname} {self.fname} {self.mname}'
+        return f'{self.lname} {self.fname[0]}.{self.mname[0]}.'

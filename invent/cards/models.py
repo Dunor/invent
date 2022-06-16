@@ -2,6 +2,7 @@ from django.db import models
 
 from technics.models import TypeOfficeEquipment
 from users.models import Owner
+from extras.models import Interface
 
 
 class OfficeEquipment(models.Model):
@@ -14,7 +15,8 @@ class OfficeEquipment(models.Model):
     owner = models.ForeignKey(Owner, on_delete=models.DO_NOTHING, null=True)
     model = models.ForeignKey(TypeOfficeEquipment, max_length=30, 
                               verbose_name='модель', on_delete=models.DO_NOTHING,)
-    interface = models.CharField(max_length=250, verbose_name='интерфейс подключения')
+    interface = models.ForeignKey(Interface, on_delete=models.DO_NOTHING,
+                                  verbose_name='интерфейс подключения')
     sticker = models.CharField(max_length=10, verbose_name='стикер')
     item_number = models.CharField(max_length=30, verbose_name='инвентарный номер')
     status = models.CharField(max_length=15, choices=STATUSES, verbose_name='статус')
@@ -24,3 +26,6 @@ class OfficeEquipment(models.Model):
     ceate_date = models.DateField(verbose_name='дата создания')
     comments = models.TextField(max_length=250, verbose_name='комментарий')
     cabinet = models.IntegerField(verbose_name='кабинет')
+
+    def __str__(self) -> str:
+        return f'{self.sticker}, {self.model}, {self.owner}'
